@@ -1,2 +1,8 @@
-<a routerLink="/index">11111</a>
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <app-header *ngIf="showHead"></app-header>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer *ngIf="showFoot"></app-footer>
+</div>
+<!--<app-loader></app-loader>-->

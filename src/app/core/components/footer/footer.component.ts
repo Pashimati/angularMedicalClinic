@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.events.subscribe((evt) => {
+    this.router.events.subscribe((evt: any) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
