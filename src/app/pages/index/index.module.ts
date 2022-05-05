@@ -18,7 +18,7 @@ import {TheNewsComponent} from "./components/the-news/the-news.component";
   ],
   imports: [
     CommonModule,
-    IndexRoutingModule
+    IndexRoutingModule,
   ],
   exports: [IndexComponent],
   providers: [],

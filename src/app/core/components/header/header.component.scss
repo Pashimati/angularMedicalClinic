@@ -43,6 +43,7 @@
     line-height: 1;
     color: #404040;
     &:hover {
+      cursor: pointer;
       border-radius: 20px;
       background: linear-gradient(270deg, rgba(50,200,250,1) 0%, rgba(88,125,228,1) 100%);
       color: #ffffff;
