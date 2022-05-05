@@ -12,13 +12,13 @@ import {CoreModule} from "@core/core.module";
     AppComponent,
   ],
   imports: [
-    SharedModule,
-    CoreModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
