@@ -2,6 +2,7 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {AuthorizationRoutingModule} from "./authorization-routing.module";
 import {AuthorizationComponent} from "./authorization.component";
+import {SharedModule} from "@shared/shared.module";
 
 
 @NgModule({
@@ -9,6 +10,7 @@ import {AuthorizationComponent} from "./authorization.component";
     AuthorizationComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     AuthorizationRoutingModule,
   ],
