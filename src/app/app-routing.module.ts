@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from "./pages/index/index.component";
 
 const routes: Routes = [
@@ -22,6 +22,14 @@ const routes: Routes = [
   {
     path: 'service',
     loadChildren: () => import('./pages/service/service.module').then(m => m.ServiceModule)
+  },
+  {
+    path: 'authorization',
+    loadChildren: () => import('./pages/authorization/authorization.module').then(m => m.AuthorizationModule)
+  },
+  {
+    path: 'registration',
+    loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule)
   },
 ];
 

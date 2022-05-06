@@ -1,0 +1,48 @@
+<div class="container">
+<!--  <app-loader></app-loader>-->
+<!--  <app-backBtn>Back to Home</app-backBtn>-->
+  <div class="wrap">
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="assets/img/login.png" alt="IMG">
+    </div>
+
+    <form
+      class="form"
+      [formGroup]="register"
+      (submit)="submit()"
+      novalidate
+    >
+      <h3 class="form-title">Please Register</h3>
+
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          class="form-control"
+          placeholder="pat@example.com"
+          formControlName="email"
+          type="email"
+          placeholder="Email"
+          required
+        >
+
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          class="form-control"
+          placeholder="Confirm password"
+          formControlName="password"
+          type="password"
+          required
+        >
+
+      </mat-form-field>
+<!--      <app-btn type="submit">Registration</app-btn>-->
+    </form>
+  </div>
+</div>
