@@ -1,4 +1,4 @@
-<section class="my-profile"
+<section class="add-update"
          style="
             background: url('assets/img/bg-myProfile.jpeg') no-repeat;
             padding-top: 90px;
@@ -6,14 +6,13 @@
             background-size: cover;"
 >
   <div class="container">
-    <h1 class="my-profile__title">Data</h1>
+    <h1 class="add-update__title">Data</h1>
     <form class="example-form">
       <mat-form-field class="input-box" appearance="fill">
         <mat-label>Name</mat-label>
         <input
             matInput
             name="title"
-            [(ngModel)]="department.title"
             required
         >
       </mat-form-field>
@@ -23,32 +22,26 @@
         <input
           matInput
           name="description"
-          [(ngModel)]="department.description"
           required
         >
       </mat-form-field>
         <input
           type="hidden"
           name="id"
-          [(ngModel)]="department.id"
           required
         >
 
       <button
-        *ngIf="flag"
         mat-button
         color="primary"
         class="btn-form"
-        (click)="updateDepartment()"
       >
         Update department
       </button>
       <button
-        *ngIf="!flag"
         mat-button
         color="primary"
         class="btn-form"
-        (click)="addDepartment()"
       >
         Add department
       </button>
