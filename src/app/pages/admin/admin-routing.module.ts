@@ -8,24 +8,17 @@ import {AddAndUpdateUser} from "./components/add-update-user/add-update-user.com
 import {AddUpdateDoctorComponent} from "./components/add-update-doctor/add-update-doctor.component";
 import {AddAndUpdateDepartment} from "./components/add-update-department/add-update-department.component";
 import {AddAndUpdateSpeciality} from "./components/add-update-speciality/add-update-speciality.component";
-import {AdminComponent} from "./admin.component";
 
 
 const routes: Routes = [
-  {
-    path: 'admin',
-    component: AdminComponent, // this is the component with the <router-outlet> in the template
-    children: [
-      {path: '/list-of-users', component: ListOfUsersComponent},
-      {path: '/list-of-doctors', component: ListOfDoctorsComponent},
-      {path: '/list-of-departments', component: ListOfDepartmentsComponent},
-      {path: '/list-of-speciality', component: ListOfSpecialityComponent},
-      {path: '/add-update-user', component: AddAndUpdateUser},
-      {path: '/add-update-doctor', component: AddUpdateDoctorComponent},
-      {path: '/add-update-department', component: AddAndUpdateDepartment},
-      {path: '/add-update-speciality', component: AddAndUpdateSpeciality},
-    ],
-  },
+      {path: 'list-of-users', component: ListOfUsersComponent},
+      {path: 'list-of-doctors', component: ListOfDoctorsComponent},
+      {path: 'list-of-departments', component: ListOfDepartmentsComponent},
+      {path: 'list-of-speciality', component: ListOfSpecialityComponent},
+      {path: 'add-update-user', component: AddAndUpdateUser},
+      {path: 'add-update-doctor', component: AddUpdateDoctorComponent},
+      {path: 'add-update-department', component: AddAndUpdateDepartment},
+      {path: 'add-update-speciality', component: AddAndUpdateSpeciality},
 ];
 
 @NgModule({
