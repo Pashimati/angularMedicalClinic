@@ -2,9 +2,8 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {ServiceRoutingModule} from "./service-routing.module";
 import {ServiceComponent} from "./service.component";
-import {SectionPreviewComponent} from "./components/section-preview/section-preview.component";
 import {ServiceBoxComponent} from "./components/service-box/service-box.component";
-import {OurDepartmentsComponent} from "./components/our-departments/our-departments.component";
+import {SharedModule} from "@shared/shared.module";
 
 
 
@@ -12,11 +11,10 @@ import {OurDepartmentsComponent} from "./components/our-departments/our-departme
 @NgModule({
   declarations: [
     ServiceComponent,
-    SectionPreviewComponent,
     ServiceBoxComponent,
-    OurDepartmentsComponent,
   ],
   imports: [
+    SharedModule,
     CommonModule,
     ServiceRoutingModule,
   ],

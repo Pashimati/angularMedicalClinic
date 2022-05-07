@@ -3,19 +3,17 @@ import {CommonModule} from "@angular/common";
 import {ContactRoutingModule} from "./contact-routing.module";
 import {ContactComponent} from "./contact.component";
 import {MapComponent} from "./components/map/map.component";
-import {SectionPreviewComponent} from "./components/section-preview/section-preview.component";
-import {HomepageBoxesComponent} from "./components/homepage-boxes/homepage-boxes.component";
+import {SharedModule} from "@shared/shared.module";
 
 
 
 @NgModule({
   declarations: [
     ContactComponent,
-    HomepageBoxesComponent,
     MapComponent,
-    SectionPreviewComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     ContactRoutingModule,
   ],

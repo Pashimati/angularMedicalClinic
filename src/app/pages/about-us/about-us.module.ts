@@ -3,7 +3,8 @@ import {CommonModule} from "@angular/common";
 import {AboutUsRoutingModule} from "./about-us-routing.module";
 import {AboutUsComponent} from "./about-us.component";
 import {TeamComponent} from "./components/team/team.component";
-import {SectionPreviewComponent} from "./components/section-preview/section-preview.component";
+import {SharedModule} from "@shared/shared.module";
+import {DoctorCardComponent} from "./components/doctor-card/doctor-card.component";
 
 
 
@@ -11,9 +12,10 @@ import {SectionPreviewComponent} from "./components/section-preview/section-prev
   declarations: [
     AboutUsComponent,
     TeamComponent,
-    SectionPreviewComponent,
+    DoctorCardComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     AboutUsRoutingModule
   ],

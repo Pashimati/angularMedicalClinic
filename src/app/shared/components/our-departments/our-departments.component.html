@@ -1,0 +1,15 @@
+<section class="our-departments" style="background: url('../../../../assets/img/departments-bg.jpg') no-repeat;background-size: cover;">
+  <div class="container">
+    <div class="our-departments__wrap">
+      <h2 class="our-departments__title">
+        Our Departments
+      </h2>
+      <div class="our-departments__cards">
+        <app-departments-card
+          *ngFor="let department of departments"
+          [department]="department"
+        ></app-departments-card>
+      </div>
+    </div>
+  </div>
+</section>
