@@ -13,8 +13,8 @@ export class DepartmentService {
     return this.apiService.get('department/get-all')
   }
 
-  getDepartment() {
-    return this.apiService.get('department/get')
+  getDepartment(id: string) {
+    return this.apiService.get(`department/get/${id}`)
   }
 
   deleteDepartment(id: string) {

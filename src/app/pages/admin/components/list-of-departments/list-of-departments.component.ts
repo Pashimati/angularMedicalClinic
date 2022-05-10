@@ -15,7 +15,6 @@ export class ListOfDepartmentsComponent implements OnInit {
 
   constructor(
     private _snackBar: MatSnackBar,
-
     private departmentService: DepartmentService
   ) {
 

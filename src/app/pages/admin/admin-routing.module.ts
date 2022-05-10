@@ -17,7 +17,7 @@ const routes: Routes = [
       {path: 'list-of-speciality', component: ListOfSpecialityComponent},
       {path: 'add-update-user', component: AddAndUpdateUser},
       {path: 'add-update-doctor', component: AddUpdateDoctorComponent},
-      {path: 'add-update-department', component: AddAndUpdateDepartment},
+      {path: 'add-update-department/:id', component: AddAndUpdateDepartment},
       {path: 'add-update-speciality', component: AddAndUpdateSpeciality},
 ];
 
