@@ -11,6 +11,7 @@ import {AddAndUpdateUser} from "./components/add-update-user/add-update-user.com
 import {AddUpdateDoctorComponent} from "./components/add-update-doctor/add-update-doctor.component";
 import {AddAndUpdateDepartment} from "./components/add-update-department/add-update-department.component";
 import {AddAndUpdateSpeciality} from "./components/add-update-speciality/add-update-speciality.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {AddAndUpdateSpeciality} from "./components/add-update-speciality/add-upd
     AddAndUpdateSpeciality,
   ],
   imports: [
+    CommonModule,
     SharedModule,
     RouterModule,
     AdminRoutingModule,

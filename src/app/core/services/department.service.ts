@@ -21,8 +21,8 @@ export class DepartmentService {
     return this.apiService.delete(`department/delete/${id}`)
   }
 
-  updateDepartments() {
-    return this.apiService.get('department/update')
+  updateDepartments(data: any) {
+    return this.apiService.post('department/update', data)
   }
 
  addDepartments() {

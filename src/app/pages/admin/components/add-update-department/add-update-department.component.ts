@@ -8,6 +8,7 @@ import {DepartmentService} from "@core/services/department.service";
 @Component({
   selector: 'app-add-update-department',
   templateUrl: './add-update-department.component.html',
+  styleUrls: [],
   providers: []
 })
 export class AddAndUpdateDepartment implements OnInit {
@@ -27,7 +28,6 @@ export class AddAndUpdateDepartment implements OnInit {
     private router: Router,
     private _snackBar: MatSnackBar
   ) {
-
   }
 
   ngOnInit() {
@@ -49,43 +49,35 @@ export class AddAndUpdateDepartment implements OnInit {
       });
   }
 
-  // updateDepartment() {
-  //
-  //   this.http.addAndUpdateFile("https://api-medical-clinic.herokuapp.com/department/update", this.department)
-  //     .subscribe({
-  //       next: ({response}:any) => {
-  //         if (response.success) {
-  //           this.router.navigate(['/admin/departments']);
-  //
-  //           this._snackBar.open('Department has been updated', 'Undo', {
-  //             duration: 3000
-  //           });
-  //         } else {
-  //           this._snackBar.open('Department not been updated', 'Undo', {
-  //             duration: 3000
-  //           });
-  //         }
-  //       }
-  //     });
-  // }
-  //
-  // addDepartment() {
-  //   this.http.addAndUpdateFile("https://api-medical-clinic.herokuapp.com/department/add", this.department )
-  //     .subscribe({
-  //       next: ({response}:any) => {
-  //         if (response.success) {
-  //           this.router.navigate(['/admin/departments']);
-  //
-  //           this._snackBar.open('Department has been created', 'Undo', {
-  //             duration: 3000
-  //           });
-  //         } else {
-  //           this._snackBar.open('Department not been created', 'Undo', {
-  //             duration: 3000
-  //           });
-  //         }
-  //       }
-  //     });
-  // }
+  updateDepartment() {
+    this.departmentService.updateDepartments(this.department)
+      .subscribe({
+        next: () => {
+            this.router.navigate(['/admin/list-of-departments']);
+            this._snackBar.open('Department has been updated', 'Undo', {
+              duration: 3000
+            });
+        }
+      });
+  }
+
+  addDepartment() {
+    // this.departmentService.addDepartments()
+    //   .subscribe({
+    //     next: ({response}:any) => {
+    //       if (response.success) {
+    //         this.router.navigate(['/admin/departments']);
+    //
+    //         this._snackBar.open('Department has been created', 'Undo', {
+    //           duration: 3000
+    //         });
+    //       } else {
+    //         this._snackBar.open('Department not been created', 'Undo', {
+    //           duration: 3000
+    //         });
+    //       }
+    //     }
+    //   });
+  }
 
 }

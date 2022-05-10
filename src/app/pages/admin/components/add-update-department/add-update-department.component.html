@@ -36,16 +36,20 @@
         >
 
       <button
+        *ngIf="flag"
         mat-button
         color="primary"
         class="btn-form"
+        (click)="updateDepartment()"
       >
         Update department
       </button>
       <button
+        *ngIf="!flag"
         mat-button
         color="primary"
         class="btn-form"
+        (click)="addDepartment()"
       >
         Add department
       </button>
