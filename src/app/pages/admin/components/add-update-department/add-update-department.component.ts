@@ -62,22 +62,16 @@ export class AddAndUpdateDepartment implements OnInit {
   }
 
   addDepartment() {
-    // this.departmentService.addDepartments()
-    //   .subscribe({
-    //     next: ({response}:any) => {
-    //       if (response.success) {
-    //         this.router.navigate(['/admin/departments']);
-    //
-    //         this._snackBar.open('Department has been created', 'Undo', {
-    //           duration: 3000
-    //         });
-    //       } else {
-    //         this._snackBar.open('Department not been created', 'Undo', {
-    //           duration: 3000
-    //         });
-    //       }
-    //     }
-    //   });
+    this.departmentService.addDepartments(this.department)
+      .subscribe({
+        next: () => {
+            this.router.navigate(['/admin/list-of-departments']);
+
+            this._snackBar.open('Department has been created', 'Undo', {
+              duration: 3000
+            });
+        }
+      });
   }
 
 }
