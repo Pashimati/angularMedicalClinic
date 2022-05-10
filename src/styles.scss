@@ -374,13 +374,13 @@ template {
   text-align: center;
   background-color: #8758e4a1;
 }
-.example-form {
+.form-admin {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   padding-bottom: 142px;
 }
-.input-box {
+.admin-input {
   max-width: 50%;
 }
 
@@ -400,7 +400,7 @@ template {
   padding-top: 250px;
   padding-bottom: 50px;
 }
-.form-link {
+.form-link-table {
   position: relative;
   left: 94%;
   transform: translate(-50%, 0);

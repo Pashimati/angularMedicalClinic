@@ -7,8 +7,8 @@
 >
   <div class="container">
     <h1 class="add-update__title">Data</h1>
-    <form class="example-form">
-      <mat-form-field class="input-box" appearance="fill">
+    <form class="form-admin">
+      <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Name</mat-label>
         <input
           [(ngModel)]="department.title"
@@ -18,7 +18,7 @@
         >
       </mat-form-field>
 
-      <mat-form-field class="input-box" appearance="fill">
+      <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Description</mat-label>
         <input
           [(ngModel)]="department.description"
@@ -29,7 +29,6 @@
       </mat-form-field>
         <input
           [(ngModel)]="department.id"
-
           type="hidden"
           name="id"
           required
