@@ -18,8 +18,11 @@ export class AppComponent {
   ) {
     router.events.forEach((event:any) => {
       if (event instanceof NavigationStart) {
-        if (event['url'] == '/authorization'
-          || (event['url'] == '/registration')) {
+        if (
+          event['url'] == '/authorization'
+          || (event['url'] == '/registration')
+          || (event['url'] == '/not-found')
+          ) {
           this.showHead = false;
           this.showFoot = false;
         } else {
