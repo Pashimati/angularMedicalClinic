@@ -8,7 +8,6 @@ import {DepartmentService} from "@core/services/department.service";
 @Component({
   selector: 'app-add-update-department',
   templateUrl: './add-update-department.component.html',
-  styleUrls: [],
   providers: []
 })
 export class AddAndUpdateDepartment implements OnInit {
