@@ -39,7 +39,6 @@ export class ListOfDepartmentsComponent implements OnInit {
               title: data.title,
             }
           })
-
         }
       })
   }
