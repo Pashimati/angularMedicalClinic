@@ -8,12 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DepartmentsCardComponent implements OnInit {
 
-  @Input() department: any;
+  @Input()department: any;
 
-  departament ={
-    title: '2123123',
-    description: '2123123',
-  }
   constructor() { }
 
   ngOnInit(): void {

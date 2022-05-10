@@ -13,7 +13,9 @@ export class AppComponent {
   ngOnInit() {
   }
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+  ) {
     router.events.forEach((event:any) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/authorization'

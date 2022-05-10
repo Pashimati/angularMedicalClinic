@@ -1,48 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-// import { HttpService } from "../../service/http.service";
-
-export interface Department {
-  name: string
-  description: string
-}
+import {DepartmentService} from "@core/services/department.service";
 
 @Component({
   selector: 'app-our-departments',
   templateUrl: './our-departments.component.html',
   styleUrls: ['./our-departments.component.scss'],
-  providers: [
-    // HttpService,
-  ],
+  providers: [DepartmentService],
 })
 export class OurDepartmentsComponent implements OnInit {
 
-  departments: Department[] = [];
+  departments = [];
 
   constructor
   (
-    // private http: HttpService
+    private departmentService: DepartmentService
   ) {
   }
 
   ngOnInit(): void {
-    // this.getDepartment()
+   this.departmentService.getAllDepartments()
+     .subscribe({
+         next: (data) => {
+           const departments = data.departments
+           this.departments = departments.map((department: any) => {
+             const data = department.data
+             console.log(data)
+             return {
+               title: data.title,
+               description: data.description
+             }
+           })
+         }
+       })
   }
-
-
-  // getDepartment() {
-  //   this.http.getAll('https://api-medical-clinic.herokuapp.com/department/get-all')
-  //     .subscribe({
-  //       next: ({response}: any) => {
-  //         const departments = response.departments
-  //
-  //         this.departments = departments.map((department: any) => {
-  //           const data = department.data
-  //           return {
-  //             title: data.title,
-  //             description: data.description
-  //           }
-  //         })
-  //       }
-  //     })
-  // }
 }
