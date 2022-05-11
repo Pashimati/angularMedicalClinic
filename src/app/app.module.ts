@@ -6,6 +6,9 @@ import {SharedModule} from "@shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CoreModule} from "@core/core.module";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "src/environments/environment";
+import {AuthorizationModule} from "./pages/authorization/authorization.module";
 
 @NgModule({
   declarations: [
@@ -15,6 +18,8 @@ import {CoreModule} from "@core/core.module";
     SharedModule,
     BrowserModule,
     AppRoutingModule,
+    AuthorizationModule,
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,

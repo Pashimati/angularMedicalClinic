@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "@core/services/auth/auth.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -15,6 +16,7 @@ export class AuthorizationComponent implements OnInit {
   role: string = ''
 
   constructor(
+    private router: Router,
     private authService: AuthService
   ) {
     this.login = new FormGroup({
@@ -31,18 +33,23 @@ export class AuthorizationComponent implements OnInit {
   }
 
   submit(): void {
-    const data = this.login.getRawValue()
-    console.log(data)
-    this.authService
-      .auth(data)
-        .then(response => {
-          const user = response.user
-            const id = user.uid
-              user.getIdToken()
-              .then( token => {
-                localStorage.setItem('token', token)
-        })
-        })
+    const {email, password} = this.login.value
+    this.authService.login(email,password)
+      .then(() => {
+      this.router.navigate([''])
+      console.log('ok!')
+    })
+
+    // this.authService
+    //   .auth(data)
+    //     .then(response => {
+    //       const user = response.user
+    //         const id = user.uid
+    //           user.getIdToken()
+    //           .then( token => {
+    //             localStorage.setItem('token', token)
+    //     })
+    //     })
   }
 
 

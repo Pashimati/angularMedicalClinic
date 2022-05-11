@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {signInWithEmailAndPassword} from "@angular/fire/auth";
-import { auth } from "./firebase.service";
 import {ApiService} from "@core/services/api.service";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 
 @Injectable({
@@ -10,15 +9,15 @@ import {ApiService} from "@core/services/api.service";
 export class AuthService {
 
   constructor(
+    private auth: AngularFireAuth,
     private apiService: ApiService
   ) {
   }
 
   data: any = null;
 
-  auth = (data: any) => {
-    const {email, password} = data
-    return signInWithEmailAndPassword(auth, email, password)
+  login(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password)
   }
 
   getRole() {
