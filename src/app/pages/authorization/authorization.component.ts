@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "@core/services/auth/auth.service";
 import {Router} from "@angular/router";
+import {StateService} from "@core/services/state.service";
 
 
 @Component({
@@ -16,6 +17,7 @@ export class AuthorizationComponent implements OnInit {
   role: string = ''
 
   constructor(
+    private stateService: StateService,
     private router: Router,
     private authService: AuthService
   ) {
@@ -34,22 +36,29 @@ export class AuthorizationComponent implements OnInit {
 
   submit(): void {
     const {email, password} = this.login.value
-    this.authService.login(email,password)
-      .then(() => {
-      this.router.navigate([''])
-      console.log('ok!')
-    })
+    this.authService.onLogin(email,password)
+      .then((response) => {
+        const user = response.user
+        const id = user?.uid
+        user?.getIdToken().then((token) => {
+          this.stateService.login(token)
+          this.authService.getRole()
+            .subscribe((role) => {
+            if (role == 'ADMIN') {
 
-    // this.authService
-    //   .auth(data)
-    //     .then(response => {
-    //       const user = response.user
-    //         const id = user.uid
-    //           user.getIdToken()
-    //           .then( token => {
-    //             localStorage.setItem('token', token)
-    //     })
-    //     })
+                this.router.navigate(['']);
+
+              } else if (role == 'DOCTOR') {
+                this.router.navigate(['/doctor/list-of-entries', id]);
+
+              } else {
+                this.router.navigate(['/profile', id]);
+              }
+
+          })
+
+        })
+    })
   }
 
 

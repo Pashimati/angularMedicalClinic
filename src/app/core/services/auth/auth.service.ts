@@ -8,24 +8,29 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 })
 export class AuthService {
 
-  constructor(
+  constructor (
     private auth: AngularFireAuth,
     private apiService: ApiService
   ) {
-  }
-
-  data: any = null;
-
-  login(email: string, password: string) {
-    return this.auth.signInWithEmailAndPassword(email, password)
-  }
-
-  getRole() {
-
   }
 
   register(data: object) {
     return this.apiService.post('auth/signup', data)
   }
 
+  onLogin(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password)
+  }
+
+  onLogout() {
+    return this.auth.signOut()
+  }
+
+  getRole() {
+    return this.apiService.get('auth/get-role')
+  }
+
+  static getToken() {
+    return localStorage.getItem('token')
+  }
 }

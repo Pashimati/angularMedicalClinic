@@ -9,6 +9,7 @@ import {CoreModule} from "@core/core.module";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "src/environments/environment";
 import {AuthorizationModule} from "./pages/authorization/authorization.module";
+import {StateService} from "@core/services/state.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {AuthorizationModule} from "./pages/authorization/authorization.module";
     FormsModule,
     CoreModule,
   ],
-  providers: [],
+  providers: [StateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

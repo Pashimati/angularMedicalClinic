@@ -24,7 +24,6 @@ export class OurDepartmentsComponent implements OnInit {
            const departments = data.departments
            this.departments = departments.map((department: any) => {
              const data = department.data
-             console.log(data)
              return {
                title: data.title,
                description: data.description

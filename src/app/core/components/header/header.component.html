@@ -8,8 +8,7 @@
       </div>
 
       <nav class="navigation">
-        <ul class="nav">
-<!--        <ul class="nav" *ngIf="!authenticated">-->
+        <ul class="nav" *ngIf="!authenticated">
           <li class="nav__item">
             <a class="nav__link" routerLink="/about-us">About us</a>
           </li>
@@ -48,23 +47,23 @@
 <!--        </ul>-->
 
 
-<!--        <ul class="nav" *ngIf="authenticated && role == 'USER'">-->
-<!--          <li class="nav__item">-->
-<!--            <a class="nav__link" routerLink="/aboutUs">About us</a>-->
-<!--          </li>-->
-<!--          <li class="nav__item">-->
-<!--            <a class="nav__link" routerLink="/service">Service</a>-->
-<!--          </li>-->
-<!--          <li class="nav__item">-->
-<!--            <a class="nav__link" routerLink="/contact">Contact</a>-->
-<!--          </li>-->
-<!--          <li class="nav__item">-->
-<!--            <a class="nav__link" [routerLink]="['/profile', id]">My Profile</a>-->
-<!--          </li>-->
-<!--          <li class="nav__item">-->
-<!--            <button class="nav__link" mat-button (click)="logout()">Logout</button>-->
-<!--          </li>-->
-<!--        </ul>-->
+        <ul class="nav" *ngIf="authenticated">
+          <li class="nav__item">
+            <a class="nav__link" routerLink="/aboutUs">About us</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" routerLink="/service">Service</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" routerLink="/contact">Contact</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link">My Profile</a>
+          </li>
+          <li class="nav__item">
+            <button class="nav__link" mat-button (click)="logout()">Logout</button>
+          </li>
+        </ul>
       </nav>
 
     </div>
