@@ -7,7 +7,6 @@ import {HeaderComponent} from "@core/components/header/header.component";
 import {RouterModule} from "@angular/router";
 import {SharedModule} from "@shared/shared.module";
 import {ModalDialogComponent} from "@core/components/modal-dialog/modal-dialog.component";
-import {StateService} from "@core/services/state.service";
 
 @NgModule({
   declarations: [
