@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from '@angular/router';
+import {AuthService} from "@core/services/auth/auth.service";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private _snackBar: MatSnackBar,
     private router: Router,
+    private authService: AuthService,
   ) {
     this.register = new FormGroup({
 
@@ -33,20 +35,16 @@ export class RegistrationComponent implements OnInit {
   }
 
   submit(): void {
-   // this.loader.show()
    const data = this.register.getRawValue()
-    console.log(data)
-   // this.authAndRegisterService
-   //    .register('https://api-medical-clinic.herokuapp.com/auth/signup', data)
-   //    .subscribe({
-   //      next: () => {
-   //        this.router.navigate(['/authorization']);
-   //        this._snackBar.open('User created!', 'Undo', {
-   //          duration: 5000
-   //        });
-   //        this.loader.hide()
-   //      }
-   //    });
+   this.authService.register(data)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/authorization']);
+          this._snackBar.open('User created!', 'Undo', {
+            duration: 5000
+          });
+        }
+      });
   }
 
 }
