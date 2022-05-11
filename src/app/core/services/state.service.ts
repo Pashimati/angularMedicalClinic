@@ -17,7 +17,7 @@ export class StateService {
 
 
   logout() : void {
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.isLoginSubject.next(false);
   }
 
