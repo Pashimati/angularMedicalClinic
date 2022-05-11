@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "@core/services/auth/auth.service";
 import {Router} from "@angular/router";
 import {StateService} from "@core/services/state.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -17,6 +18,7 @@ export class AuthorizationComponent implements OnInit {
   role: string = ''
 
   constructor(
+    private _snackBar: MatSnackBar,
     private stateService: StateService,
     private router: Router,
     private authService: AuthService
@@ -43,20 +45,22 @@ export class AuthorizationComponent implements OnInit {
         user?.getIdToken().then((token) => {
           this.stateService.login(token)
           this.authService.getRole()
-            .subscribe((role) => {
+            .subscribe((response) => {
+              const role = response.role
             if (role == 'ADMIN') {
 
                 this.router.navigate(['']);
 
               } else if (role == 'DOCTOR') {
-                this.router.navigate(['/doctor/list-of-entries', id]);
+                this.router.navigate(['/doctor', id]);
 
               } else {
                 this.router.navigate(['/profile', id]);
               }
-
           })
-
+          this._snackBar.open('You are logged in!', 'Undo', {
+            duration: 5000
+          });
         })
     })
   }

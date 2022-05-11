@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ModalDialogComponent} from "@core/components/modal-dialog/modal-dialog.component";
 import {StateService} from "@core/services/state.service";
 import {AuthService} from "@core/services/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
   authenticated = false;
   role = ''
   constructor (
+    private router: Router,
     private authService: AuthService,
     private stateService: StateService,
     public dialog: MatDialog
@@ -24,18 +26,30 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(ModalDialogComponent);
   }
   ngOnInit(): void {
-
     this.stateService.isLoginSubject
       .subscribe((auth) => {
         this.authenticated = auth
       })
 
+    this.authService.getRole()
+      .subscribe((response) => {
+        this.role = response.role
+      })
   }
 
   logout() {
-    this.authService.onLogout().then(() => {
-      this.stateService.logout()
-      this.authenticated = false
+    this.authService.onLogout()
+      .then(() => {
+        this.stateService.logout()
+        this.authenticated = false
+        this.router.navigate([''])
     })
+  }
+
+  getRole() {
+    this.authService.getRole()
+      .subscribe((response) => {
+        this.role = response.role
+      })
   }
 }
