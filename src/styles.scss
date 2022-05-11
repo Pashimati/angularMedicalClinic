@@ -383,6 +383,10 @@ template {
 .admin-input {
   max-width: 50%;
 }
+.admin-box {
+  display: flex;
+  flex-direction: column;
+}
 
 //
 .mat-table {

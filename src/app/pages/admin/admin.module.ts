@@ -26,8 +26,8 @@ import {CommonModule} from "@angular/common";
     AddAndUpdateSpeciality,
   ],
   imports: [
-    CommonModule,
     SharedModule,
+    CommonModule,
     RouterModule,
     AdminRoutingModule,
   ],

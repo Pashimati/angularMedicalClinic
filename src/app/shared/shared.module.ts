@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {MaterialModules} from "./exports/material";
 import {CommonModule} from "@angular/common";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule,} from "@angular/forms";
 import {BackBtnComponent} from "@shared/components/back-btn/back-btn.component";
 import {BtnComponent} from "@shared/components/btn/btn.component";
 import {FormAppointmentComponent} from "@shared/components/form-appoitnment/form-appointment.component";

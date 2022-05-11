@@ -8,7 +8,8 @@
   <div class="container">
     <h1 class="add-update__title">Enter data</h1>
     <form
-
+      [formGroup]="profile"
+      (submit)="addUser()"
       novalidate
       class="form-admin"
     >
@@ -29,23 +30,26 @@
         >
       </mat-form-field>
 
-      <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          formControlName="email"
-          required
-        >
-      </mat-form-field>
+      <div class="admin-box" *ngIf="flag">
+        <mat-form-field class="admin-input" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            required
+          >
+        </mat-form-field>
 
-      <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          formControlName="password"
-          required
-        >
-      </mat-form-field>
+        <mat-form-field class="admin-input" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            required
+          >
+        </mat-form-field>
+      </div>
+
 
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Sex</mat-label>
@@ -96,7 +100,6 @@
         color="primary"
         type="submit"
         class="btn-form"
-
       >
         Submit
       </button>

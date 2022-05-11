@@ -18,7 +18,7 @@ export class UsersService {
   }
 
   deleteUser(id: string) {
-    return this.apiService.delete(`user/admin/delete${id}`)
+    return this.apiService.delete(`user/admin/delete/${id}`)
   }
 
   updateUser(data: any) {
@@ -26,6 +26,6 @@ export class UsersService {
   }
 
  addUser(data: any) {
-    return this.apiService.post('department/add', data)
+    return this.apiService.post('user/admin/add', data)
   }
 }
