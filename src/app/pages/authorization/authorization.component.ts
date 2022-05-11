@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "@core/services/auth/auth.service";
 
 
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.scss'],
-  providers: []
+  providers: [AuthService]
 })
 export class AuthorizationComponent implements OnInit {
   login: FormGroup;
@@ -14,6 +15,7 @@ export class AuthorizationComponent implements OnInit {
   role: string = ''
 
   constructor(
+    private authService: AuthService
   ) {
     this.login = new FormGroup({
 
@@ -29,9 +31,25 @@ export class AuthorizationComponent implements OnInit {
   }
 
   submit(): void {
-    // this.loader.show()
     const data = this.login.getRawValue()
     console.log(data)
+    this.authService
+      .auth(data)
+        .then(response => {
+          const user = response.user
+            const id = user.uid
+              user.getIdToken()
+              .then( token => {
+                localStorage.setItem('token', token)
+        })
+        })
+  }
+
+
+  // submit(): void {
+    // this.loader.show()
+  // ?  const data = this.login.getRawValue()
+  // console.log(data)
     // this.authAndRegisterService
     //   .auth(data)
     //     .then(response => {
@@ -68,6 +86,6 @@ export class AuthorizationComponent implements OnInit {
     //           this.loader.hide()
     //       })
     // })
-  }
+  // }
 }
 
