@@ -38,8 +38,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/doctor/doctor.module').then(m => m.DoctorModule)
   },
   {
+    path: 'doctor/:id',
+    loadChildren: () => import('./pages/doctor/doctor.module').then(m => m.DoctorModule)
+  },
+  {
     path: 'not-found',
-    component: NotFoundComponent,
+    loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
   },
 
   { path: '**',   redirectTo: 'not-found'}
