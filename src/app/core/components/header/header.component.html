@@ -27,10 +27,10 @@
         <ul class="nav" *ngIf="authenticated && role == 'ADMIN'">
           <button class="nav__link" mat-button [matMenuTriggerFor]="menu">Menu</button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/admin/doctors">Doctors</button>
-            <button mat-menu-item routerLink="/admin/users">Users</button>
-            <button mat-menu-item routerLink="/admin/departments">Departments</button>
-            <button mat-menu-item routerLink="/admin/speciality">Speciality</button>
+            <button mat-menu-item routerLink="/admin/list-of-doctors">Doctors</button>
+            <button mat-menu-item routerLink="/admin/list-of-users">Users</button>
+            <button mat-menu-item routerLink="/admin/list-of-departments">Departments</button>
+            <button mat-menu-item routerLink="/admin/list-of-speciality">Speciality</button>
           </mat-menu>
           <li class="nav__item">
             <button class="nav__link" mat-button (click)="logout()">Logout</button>
