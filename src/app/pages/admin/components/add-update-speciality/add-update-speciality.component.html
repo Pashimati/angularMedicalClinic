@@ -11,28 +11,35 @@
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Speciality</mat-label>
         <input
+            [(ngModel)]="speciality.title"
             matInput
             name="title"
             required
         >
       </mat-form-field>
+
         <input
+          [(ngModel)]="speciality.id"
           type="hidden"
           name="id"
           required
         >
 
       <button
+        *ngIf="flag"
         mat-button
         color="primary"
         class="btn-form"
+        (click)="updateSpeciality()"
       >
         Update speciality
       </button>
       <button
+        *ngIf="!flag"
         mat-button
         color="primary"
         class="btn-form"
+        (click)="addSpeciality()"
       >
         Add speciality
       </button>

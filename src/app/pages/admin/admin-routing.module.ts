@@ -21,6 +21,7 @@ const routes: Routes = [
       {path: 'add-update-department/:id', component: AddAndUpdateDepartment},
       {path: 'add-update-department', component: AddAndUpdateDepartment},
       {path: 'add-update-speciality', component: AddAndUpdateSpeciality},
+      {path: 'add-update-speciality/:id', component: AddAndUpdateSpeciality},
 ];
 
 @NgModule({
