@@ -1,4 +1,4 @@
-<section class="add-update"
+<section class="my-profile"
          style="
             background: url('assets/img/bg-myProfile.jpeg') no-repeat;
             padding-top: 90px;
@@ -6,22 +6,24 @@
             background-size: cover;"
 >
   <div class="container">
-    <h1 class="add-update__title">Укажите данные</h1>
-    <form class="example-form">
+    <h1 class="my-profile__title">Укажите данные</h1>
+    <form class="form-admin">
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Name</mat-label>
         <input
-            matInput
-            name="name"
-            required
+          matInput
+          name="name"
+          [(ngModel)]="doctor.name"
+          required
         >
       </mat-form-field>
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Surname</mat-label>
         <input
-            matInput
-            name="surname"
-            required
+          matInput
+          name="surname"
+          [(ngModel)]="doctor.surname"
+          required
         >
       </mat-form-field>
 
@@ -32,6 +34,7 @@
         <input
           matInput
           name="email"
+          [(ngModel)]="doctor.email"
           required
         >
       </mat-form-field>
@@ -42,6 +45,7 @@
         <input
           matInput
           name="password"
+          [(ngModel)]="doctor.password"
           required
         >
       </mat-form-field>
@@ -49,9 +53,10 @@
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Speciality</mat-label>
         <input
-             matInput
-             name="speciality"
-             required
+          matInput
+          name="speciality"
+          [(ngModel)]="doctor.speciality"
+          required
         >
       </mat-form-field>
       <mat-form-field class="admin-input" appearance="fill">
@@ -59,6 +64,7 @@
         <input
           matInput
           name="department"
+          [(ngModel)]="doctor.department"
           required
         >
 
@@ -69,27 +75,33 @@
         <textarea
           matInput
           name="about"
+          [(ngModel)]="doctor.about"
           required
         ></textarea>
       </mat-form-field>
 
-        <input
-          type="hidden"
-          name="id"
-          required
-        >
+      <input
+        type="hidden"
+        name="id"
+        [(ngModel)]="doctor.id"
+        required
+      >
 
       <button
+        *ngIf="flag"
         mat-button
         color="primary"
         class="btn-form"
+        (click)="updateDoctor()"
       >
         Update doctor
       </button>
       <button
+        *ngIf="!flag"
         mat-button
         color="primary"
         class="btn-form"
+        (click)="addDoctor()"
       >
         Add doctor
       </button>

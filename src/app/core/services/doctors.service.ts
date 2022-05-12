@@ -4,28 +4,28 @@ import { ApiService } from "@core/services/api.service";
 @Injectable({
   providedIn: 'root'
 })
-export class DepartmentService {
+export class DoctorsService {
 
   constructor(private apiService: ApiService) {
   }
 
-  getAllDepartments() {
-    return this.apiService.get('department/get-all')
+  getAllDoctors() {
+    return this.apiService.get('doctor/admin/get-all')
   }
 
-  getDepartment(id: string) {
-    return this.apiService.get(`department/get/${id}`)
+  getDoctor(id: string) {
+    return this.apiService.get(`doctor/get/${id}`)
   }
 
-  deleteDepartment(id: string) {
-    return this.apiService.delete(`department/delete/${id}`)
+  deleteDoctor(id: string) {
+    return this.apiService.delete(`doctor/admin/delete/${id}`)
   }
 
-  updateDepartments(data: any) {
-    return this.apiService.post('department/update', data)
+  updateDoctor(data: any) {
+    return this.apiService.post('doctor/admin/update', data)
   }
 
- addDepartments(data: any) {
-    return this.apiService.post('department/add', data)
+ addDoctor(data: any) {
+    return this.apiService.post('doctor/admin/add', data)
   }
 }
