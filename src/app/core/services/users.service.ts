@@ -10,7 +10,7 @@ export class UsersService {
   }
 
   getAllUsers() {
-    return this.apiService.get('user/admin/get-all')
+    return this.apiService.get('user/get-all')
   }
 
   getUser(id: string) {
@@ -18,7 +18,7 @@ export class UsersService {
   }
 
   deleteUser(id: string) {
-    return this.apiService.delete(`user/admin/delete/${id}`)
+    return this.apiService.delete(`user/delete/${id}`)
   }
 
   updateUser(data: any) {
@@ -26,6 +26,6 @@ export class UsersService {
   }
 
  addUser(data: any) {
-    return this.apiService.post('user/admin/add', data)
+    return this.apiService.post('user/add', data)
   }
 }

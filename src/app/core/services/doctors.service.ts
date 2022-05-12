@@ -18,14 +18,14 @@ export class DoctorsService {
   }
 
   deleteDoctor(id: string) {
-    return this.apiService.delete(`doctor/admin/delete/${id}`)
+    return this.apiService.delete(`doctor/delete/${id}`)
   }
 
   updateDoctor(data: any) {
-    return this.apiService.post('doctor/admin/update', data)
+    return this.apiService.post('doctor/update', data)
   }
 
  addDoctor(data: any) {
-    return this.apiService.post('doctor/admin/add', data)
+    return this.apiService.post('doctor/add', data)
   }
 }

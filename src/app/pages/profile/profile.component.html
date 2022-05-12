@@ -1,0 +1,91 @@
+<section class="add-update"
+         style="
+            background: url('assets/img/contact-bg.png') no-repeat;
+            padding-top: 90px;
+            width: 100%;
+            background-size: cover;"
+>
+  <div class="container">
+    <h1 class="add-update__title">Enter data</h1>
+    <form
+      novalidate
+      class="form-admin"
+    >
+      <mat-form-field class="admin-input" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+          name="name"
+          [(ngModel)]="user.name"
+          matInput
+          required
+        >
+      </mat-form-field>
+      <mat-form-field class="admin-input" appearance="fill">
+        <mat-label>Surname</mat-label>
+        <input
+          name="surname"
+          [(ngModel)]="user.surname"
+          matInput
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field class="admin-input" appearance="fill">
+        <mat-label>Sex</mat-label>
+        <mat-select
+          name="sex"
+        [(ngModel)]="user.sex"
+          required
+        >
+          <mat-option value="men">Men</mat-option>
+          <mat-option value="women">Women</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="admin-input" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input
+          name="age"
+          [(ngModel)]="user.age"
+          matInput
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field class="admin-input" appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea
+          name="address"
+          [(ngModel)]="user.address"
+          matInput
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="admin-input" appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input
+          name="phone"
+          [(ngModel)]="user.phone"
+          matInput
+          required
+        >
+      </mat-form-field>
+      <input
+        [(ngModel)]="user.id"
+        type="hidden"
+        name="id"
+        required
+      >
+
+      <button
+        mat-button
+        color="primary"
+        class="btn-form"
+        (click)="updateUser()"
+      >
+        Update user
+      </button>
+    </form>
+  </div>
+</section>
