@@ -13,6 +13,10 @@ export class SubscribeService {
     return this.apiService.get(`subscription/get-all-byId/${id}`)
   }
 
+  addSubscription(data: object) {
+    return this.apiService.post('subscription/add', data)
+  }
+
   deleteSubscription(id: string) {
     return this.apiService.delete(`subscription/delete/${id}`)
   }

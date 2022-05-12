@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs";
-import {SubscribeService} from "@core/services/auth/subscribe.service";
+import {SubscribeService} from "@core/services/subscribe.service";
 import {UsersService} from "@core/services/users.service";
 
 @Component({

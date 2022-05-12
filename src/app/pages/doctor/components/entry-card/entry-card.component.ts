@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SubscribeService} from "@core/services/auth/subscribe.service";
+import {SubscribeService} from "@core/services/subscribe.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
