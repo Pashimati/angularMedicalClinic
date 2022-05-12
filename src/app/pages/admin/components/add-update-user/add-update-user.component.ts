@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "@core/services/users.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -10,9 +9,18 @@ import {switchMap} from "rxjs";
   templateUrl: './add-update-user.component.html',
 })
 export class AddAndUpdateUser implements OnInit {
-  profile: FormGroup
-  id: string =''
 
+  user = {
+    id: '',
+    name: '',
+    surname: '',
+    age: '',
+    sex: '',
+    address: '',
+    email: '',
+    password: '',
+    phone: '',
+  }
 
   flag: boolean = true;
 
@@ -22,17 +30,6 @@ export class AddAndUpdateUser implements OnInit {
     private router: Router,
     private _snackBar: MatSnackBar
   ) {
-    this.profile = new FormGroup({
-      email: new FormControl("", Validators.min(3)),
-      password: new FormControl("", Validators.min(3)),
-      name: new FormControl("", Validators.min(3)),
-      surname: new FormControl("", Validators.min(3)),
-      sex: new FormControl(),
-      age: new FormControl("", Validators.pattern("[0-9]{2}")),
-      address: new FormControl("", Validators.min(20)),
-      phone: new FormControl("", Validators.pattern("[- +()0-9]+")),
-      fileName: new FormControl(),
-    });
   }
 
   ngOnInit() {
@@ -43,7 +40,13 @@ export class AddAndUpdateUser implements OnInit {
         this.userService.getUser(id)
           .subscribe({
             next: ({user}) => {
-
+              this.user.name = user.name
+              this.user.surname = user.surname
+              this.user.age = user.age
+              this.user.sex = user.sex
+              this.user.address = user.address
+              this.user.phone = user.phone
+              this.user.id = id
               if (id) {
                 this.flag = false
               }
@@ -53,8 +56,7 @@ export class AddAndUpdateUser implements OnInit {
   }
 
   addUser() {
-    const data = this.profile.getRawValue()
-      this.userService.addUser(data)
+      this.userService.addUser(this.user)
         .subscribe({
           next: () => {
             this.router.navigate(['/admin/list-of-users']);
@@ -65,4 +67,19 @@ export class AddAndUpdateUser implements OnInit {
           }
         });
   }
+
+  updateUser() {
+    this.userService.updateUser(this.user)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/admin/list-of-users']);
+
+          this._snackBar.open('User has been updated', 'Undo', {
+            duration: 3000
+          });
+        }
+      });
+  }
+
+
 }

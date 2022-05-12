@@ -8,24 +8,24 @@
   <div class="container">
     <h1 class="add-update__title">Enter data</h1>
     <form
-      [formGroup]="profile"
-      (submit)="addUser()"
       novalidate
       class="form-admin"
     >
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Name</mat-label>
         <input
+          name="name"
+          [(ngModel)]="user.name"
           matInput
-          formControlName="name"
           required
         >
       </mat-form-field>
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Surname</mat-label>
         <input
+          name="surname"
+          [(ngModel)]="user.surname"
           matInput
-          formControlName="surname"
           required
         >
       </mat-form-field>
@@ -34,8 +34,9 @@
         <mat-form-field class="admin-input" appearance="fill">
           <mat-label>Email</mat-label>
           <input
+            name="email"
+            [(ngModel)]="user.email"
             matInput
-            formControlName="email"
             required
           >
         </mat-form-field>
@@ -43,8 +44,9 @@
         <mat-form-field class="admin-input" appearance="fill">
           <mat-label>Password</mat-label>
           <input
+            name="password"
+            [(ngModel)]="user.password"
             matInput
-            formControlName="password"
             required
           >
         </mat-form-field>
@@ -54,7 +56,8 @@
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Sex</mat-label>
         <mat-select
-          formControlName="sex"
+          name="sex"
+        [(ngModel)]="user.sex"
           required
         >
           <mat-option value="men">Men</mat-option>
@@ -65,8 +68,9 @@
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Age</mat-label>
         <input
+          name="age"
+          [(ngModel)]="user.age"
           matInput
-          formControlName="age"
           required
         >
       </mat-form-field>
@@ -74,8 +78,9 @@
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Address</mat-label>
         <textarea
+          name="address"
+          [(ngModel)]="user.address"
           matInput
-          formControlName="address"
           required
         ></textarea>
       </mat-form-field>
@@ -83,25 +88,36 @@
       <mat-form-field class="admin-input" appearance="fill">
         <mat-label>Phone</mat-label>
         <input
+          name="phone"
+          [(ngModel)]="user.phone"
           matInput
-          formControlName="phone"
           required
         >
       </mat-form-field>
       <input
+        [(ngModel)]="user.id"
         type="hidden"
-        name="fileName"
-        formControlName="fileName"
+        name="id"
         required
       >
 
       <button
+        *ngIf="!flag"
         mat-button
         color="primary"
-        type="submit"
         class="btn-form"
+        (click)="updateUser()"
       >
-        Submit
+        Update user
+      </button>
+      <button
+        *ngIf="flag"
+        mat-button
+        color="primary"
+        class="btn-form"
+        (click)="addUser()"
+      >
+        Add user
       </button>
     </form>
   </div>

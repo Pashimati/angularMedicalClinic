@@ -11,8 +11,6 @@ import {DoctorsService} from "@core/services/doctors.service";
 })
 export class AddUpdateDoctorComponent implements OnInit {
 
-  url: string = ''
-
   doctor = {
     id: '',
     name: '',
