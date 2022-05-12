@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {SubscribeService} from "@core/services/auth/subscribe.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-entry-card',
@@ -10,30 +12,25 @@ export class EntryCardComponent implements OnInit {
 
   @Input() user: any;
 
-  constructor
-  (
-  ) { }
+  constructor (
+    private subscribeService: SubscribeService,
+    private _snackBar: MatSnackBar
+
+) {
+  }
 
   ngOnInit(): void {
   }
 
-
-  // remove(id: string) {
-  //   this.http.deleteFileById('https://api-medical-clinic.herokuapp.com/subscription/delete', id)
-  //     .subscribe({
-  //       next: ({response}:any) => {
-  //         if (response.success) {
-  //           //
-  //           this._snackBar.open('Subscription has been deleted', 'Undo', {
-  //             duration: 3000
-  //           });
-  //         } else {
-  //           this._snackBar.open('Subscription not been deleted', 'Undo', {
-  //             duration: 3000
-  //           });
-  //         }
-  //       }
-  //     });
-  // }
+  remove(id: string) {
+    this.subscribeService.deleteSubscription(id)
+      .subscribe({
+        next: () => {
+            this._snackBar.open('Subscription has been deleted', 'Undo', {
+              duration: 3000
+            });
+        }
+      });
+  }
 
 }
