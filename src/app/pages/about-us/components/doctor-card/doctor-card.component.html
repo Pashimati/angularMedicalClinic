@@ -1,10 +1,10 @@
 <mat-card class="example-card team-card">
   <mat-card-header>
-    <mat-card-title>jjgjghdfhfdh</mat-card-title>
-    <mat-card-subtitle>fgdfgdgdfgdfgd</mat-card-subtitle>
+    <mat-card-title>{{ doctor.name + ' ' + doctor.surname }}</mat-card-title>
+    <mat-card-subtitle>{{ doctor.speciality }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="../../../../../assets/img/surgeon.jpg">
+  <img mat-card-image src="assets/img/surgeon.jpg">
   <mat-card-content>
-    <p>gfdgdfdffg</p>
+    <p>{{ doctor.about }}</p>
   </mat-card-content>
 </mat-card>

@@ -10,7 +10,7 @@ export class DoctorsService {
   }
 
   getAllDoctors() {
-    return this.apiService.get('doctor/admin/get-all')
+    return this.apiService.get('doctor/get-all')
   }
 
   getDoctor(id: string) {
