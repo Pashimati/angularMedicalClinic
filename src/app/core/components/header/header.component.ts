@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
 
   authenticated = false;
   role = ''
+  id = ''
+
   constructor (
     private router: Router,
     private authService: AuthService,
@@ -34,6 +36,11 @@ export class HeaderComponent implements OnInit {
     this.authService.getRole()
       .subscribe((response) => {
         this.role = response.role
+      })
+
+    this.stateService.getId()
+      .subscribe((id) => {
+        this.id = id
       })
   }
 

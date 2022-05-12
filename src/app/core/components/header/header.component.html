@@ -40,7 +40,7 @@
         <ul class="nav" *ngIf="authenticated && role == 'DOCTOR'">
           <button class="nav__link" mat-button [matMenuTriggerFor]="menu">Menu</button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item [routerLink]="['/doctor/listOfEntries',]">Entries</button>
+            <button mat-menu-item [routerLink]="['/doctor', id]">Entries</button>
           </mat-menu>
           <li class="nav__item">
             <button class="nav__link" mat-button (click)="logout()">Logout</button>
@@ -59,7 +59,7 @@
             <a class="nav__link" routerLink="/contact">Contact</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" [routerLink]="['/profile',]">My Profile</a>
+            <a class="nav__link" [routerLink]="['/profile', id]">My Profile</a>
           </li>
           <li class="nav__item">
             <button class="nav__link" mat-button (click)="logout()">Logout</button>

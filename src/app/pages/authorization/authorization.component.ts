@@ -42,21 +42,25 @@ export class AuthorizationComponent implements OnInit {
       .then((response) => {
         const user = response.user
         const id = user?.uid
-        user?.getIdToken().then((token) => {
-          this.stateService.login(token)
-          this.authService.getRole()
-            .subscribe((response) => {
-              const role = response.role
-            if (role == 'ADMIN') {
+        if (typeof id === "string") {
+          localStorage.setItem('id', id)
+        }
+        user?.getIdToken()
+          .then((token) => {
+            this.stateService.login(token)
+            this.authService.getRole()
+              .subscribe((response) => {
+                const role = response.role
+                if (role == 'ADMIN') {
 
-                this.router.navigate(['']);
+                    this.router.navigate(['']);
 
-              } else if (role == 'DOCTOR') {
-                this.router.navigate(['/doctor', id]);
+                  } else if (role == 'DOCTOR') {
+                    this.router.navigate(['/doctor', id]);
 
-              } else {
-                this.router.navigate(['/profile', id]);
-              }
+                  } else {
+                    this.router.navigate(['/profile', id]);
+                  }
           })
           this._snackBar.open('You are logged in!', 'Undo', {
             duration: 5000
