@@ -41,19 +41,11 @@ export class listOfEntriesComponent implements OnInit {
             const email = subscription.data.email
             let date = subscription.data.date
 
-            let dateString = new Date(date);
-
-            let dateFormat = dateString.getDate()+
-              "/"+(dateString.getMonth()+1)+
-              "/"+dateString.getFullYear()+
-              " "+dateString.getHours()+
-              ":"+dateString.getMinutes();
-
             this.userService.getUser(uidUser)
               .subscribe({
                 next: (data) => {
                   const user = data.user
-                  this.users.push({...user, email, dateFormat, id})
+                  this.users.push({...user, email, date, id})
                 }
               })
           })
