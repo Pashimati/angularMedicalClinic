@@ -51,11 +51,17 @@ export class ListOfUsersComponent implements OnInit {
   remove(id: string) {
     this.userService.deleteUser(id)
       .subscribe({
-        next: () => {
-          this.updateTableList()
-          this._snackBar.open('User has been deleted', 'Undo', {
-            duration: 3000
-          });
+        next: (response) => {
+          if (response.success) {
+            this.updateTableList()
+            this._snackBar.open('User has been deleted', 'Undo', {
+              duration: 3000
+            });
+          } else {
+            this._snackBar.open('User not been deleted!', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

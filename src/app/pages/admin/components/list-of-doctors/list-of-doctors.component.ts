@@ -47,12 +47,17 @@ export class ListOfDoctorsComponent implements OnInit {
   removeDoctor(id: string) {
     this.doctorsService.deleteDoctor(id)
       .subscribe({
-        next: () => {
+        next: (response) => {
+          if (response.success) {
             this.updateTableList()
             this._snackBar.open('Doctor has been deleted', 'Undo', {
               duration: 3000
             });
-
+          } else {
+            this._snackBar.open('Doctor not been deleted!', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

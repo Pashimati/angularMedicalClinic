@@ -47,11 +47,17 @@ export class AddAndUpdateSpeciality implements OnInit {
   updateSpeciality() {
     this.specialityService.updateSpeciality(this.speciality)
       .subscribe({
-        next: () => {
-          this.router.navigate(['/admin/list-of-speciality']);
-          this._snackBar.open('Speciality has been updated', 'Undo', {
-            duration: 3000
-          });
+        next: (response) => {
+          if (response.success) {
+            this.router.navigate(['/admin/list-of-speciality']);
+            this._snackBar.open('Speciality has been updated', 'Undo', {
+              duration: 3000
+            });
+          } else {
+            this._snackBar.open('Speciality not been updated', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }
@@ -59,12 +65,17 @@ export class AddAndUpdateSpeciality implements OnInit {
   addSpeciality() {
     this.specialityService.addSpeciality(this.speciality)
       .subscribe({
-        next: () => {
-          this.router.navigate(['/admin/list-of-speciality']);
-
-          this._snackBar.open('Speciality has been created', 'Undo', {
-            duration: 3000
-          });
+        next: (response) => {
+          if (response.success) {
+            this.router.navigate(['/admin/list-of-speciality']);
+            this._snackBar.open('Speciality has been added', 'Undo', {
+              duration: 3000
+            });
+          } else {
+            this._snackBar.open('Speciality not been added', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

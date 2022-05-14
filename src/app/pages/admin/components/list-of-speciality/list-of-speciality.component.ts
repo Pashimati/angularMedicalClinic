@@ -46,11 +46,17 @@ export class ListOfSpecialityComponent implements OnInit {
   remove(id: string) {
     this.specialityService.deleteSpeciality(id)
       .subscribe({
-        next: () => {
-          this.updateTableList()
-          this._snackBar.open('Speciality has been deleted', 'Undo', {
-            duration: 3000
-          });
+        next: (response) => {
+          if (response.success) {
+            this.updateTableList()
+            this._snackBar.open('Speciality has been deleted', 'Undo', {
+              duration: 3000
+            });
+          } else {
+            this._snackBar.open('Speciality not been deleted!', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

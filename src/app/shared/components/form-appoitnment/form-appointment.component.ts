@@ -5,13 +5,12 @@ import {DepartmentService} from "@core/services/department.service";
 import {DoctorsService} from "@core/services/doctors.service";
 import {SubscribeService} from "@core/services/subscribe.service";
 
-
 interface nameDepartment {
   value: string;
   viewValue: string;
 }
 
-export interface Doctor {
+interface Doctor {
   name: string
   surname: string
   about: string
@@ -117,10 +116,16 @@ export class FormAppointmentComponent implements OnInit {
     data.uidUser = localStorage.getItem('id')
     this.subscriptionService.addSubscription(data)
       .subscribe({
-        next: () => {
+        next: (response) => {
+          if (response.success) {
             this._snackBar.open('You have an appointment with a doctor', 'Undo', {
               duration: 3000
             });
+          } else {
+            this._snackBar.open('Unsuccessful!', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

@@ -32,19 +32,20 @@ export class TeamComponent implements OnInit {
   getDoctors() {
     this.doctorService.getAllDoctors()
       .subscribe({
-        next: (data) => {
-          const doctors = data.doctors
-
-          this.doctors = doctors.map((doctor: any) => {
-            const data = doctor.data
-            return {
-              name: data.name,
-              surname: data.surname,
-              speciality: data.speciality,
-              department: data.department,
-              about: data.about,
-            }
-          })
+        next: (response) => {
+          if (response.success) {
+            const doctors = response.doctors
+            this.doctors = doctors.map((doctor: any) => {
+              const data = doctor.data
+              return {
+                name: data.name,
+                surname: data.surname,
+                speciality: data.speciality,
+                department: data.department,
+                about: data.about,
+              }
+            })
+          }
         }
       })
   }

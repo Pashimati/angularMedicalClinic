@@ -58,12 +58,17 @@ export class AddAndUpdateUser implements OnInit {
   addUser() {
       this.userService.addUser(this.user)
         .subscribe({
-          next: () => {
-            this.router.navigate(['/admin/list-of-users']);
-
-            this._snackBar.open('User has been created', 'Undo', {
-              duration: 3000
-            });
+          next: (response) => {
+            if (response.success) {
+              this.router.navigate(['/admin/list-of-users']);
+              this._snackBar.open('User has been added', 'Undo', {
+                duration: 3000
+              });
+            } else {
+              this._snackBar.open('User not been added', 'Undo', {
+                duration: 3000
+              });
+            }
           }
         });
   }
@@ -71,12 +76,17 @@ export class AddAndUpdateUser implements OnInit {
   updateUser() {
     this.userService.updateUser(this.user)
       .subscribe({
-        next: () => {
-          this.router.navigate(['/admin/list-of-users']);
-
-          this._snackBar.open('User has been updated', 'Undo', {
-            duration: 3000
-          });
+        next: (response) => {
+          if (response.success) {
+            this.router.navigate(['/admin/list-of-users']);
+            this._snackBar.open('User has been updated', 'Undo', {
+              duration: 3000
+            });
+          } else {
+            this._snackBar.open('User not been updated', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

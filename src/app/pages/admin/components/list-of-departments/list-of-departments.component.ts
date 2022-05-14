@@ -45,12 +45,18 @@ export class ListOfDepartmentsComponent implements OnInit {
   remove(id: string) {
     this.departmentService.deleteDepartment(id)
       .subscribe({
-        next: () => {
+        next: (response) => {
+          if (response.success) {
             this.updateTableList()
             this._snackBar.open('Department has been deleted', 'Undo', {
               duration: 3000
             });
+          } else {
+            this._snackBar.open('Department not been deleted', 'Undo', {
+              duration: 3000
+            });
           }
+        }
       });
   }
 }

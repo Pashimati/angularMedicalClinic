@@ -51,11 +51,17 @@ export class AddAndUpdateDepartment implements OnInit {
   updateDepartment() {
     this.departmentService.updateDepartments(this.department)
       .subscribe({
-        next: () => {
+        next: (response) => {
+          if (response.success) {
             this.router.navigate(['/admin/list-of-departments']);
             this._snackBar.open('Department has been updated', 'Undo', {
               duration: 3000
             });
+          } else {
+            this._snackBar.open('Department not been updated', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }
@@ -63,12 +69,17 @@ export class AddAndUpdateDepartment implements OnInit {
   addDepartment() {
     this.departmentService.addDepartments(this.department)
       .subscribe({
-        next: () => {
+        next: (response) => {
+          if (response.success) {
             this.router.navigate(['/admin/list-of-departments']);
-
-            this._snackBar.open('Department has been created', 'Undo', {
+            this._snackBar.open('Department has been added', 'Undo', {
               duration: 3000
             });
+          } else {
+            this._snackBar.open('Department not been added', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }

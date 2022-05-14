@@ -58,12 +58,17 @@ export class AddUpdateDoctorComponent implements OnInit {
   updateDoctor() {
     this.doctorService.updateDoctor(this.doctor)
       .subscribe({
-        next: () => {
+        next: (response) => {
+          if (response.success) {
             this.router.navigate(['/admin/list-of-doctors']);
-
             this._snackBar.open('Doctor has been updated', 'Undo', {
               duration: 3000
             });
+          } else {
+            this._snackBar.open('Doctor not been updated', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }
@@ -71,12 +76,17 @@ export class AddUpdateDoctorComponent implements OnInit {
   addDoctor() {
     this.doctorService.addDoctor(this.doctor)
       .subscribe({
-        next: () => {
-          this.router.navigate(['/admin/list-of-doctors']);
-
-          this._snackBar.open('Doctor has been created', 'Undo', {
-            duration: 3000
-          });
+        next: (response) => {
+          if (response.success) {
+            this.router.navigate(['/admin/list-of-doctors']);
+            this._snackBar.open('Doctor has been added', 'Undo', {
+              duration: 3000
+            });
+          } else {
+            this._snackBar.open('Doctor not been added', 'Undo', {
+              duration: 3000
+            });
+          }
         }
       });
   }
