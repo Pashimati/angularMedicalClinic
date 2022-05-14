@@ -1,6 +1,7 @@
 <div class="container">
   <div class="wrap-cards">
     <app-entry-card
+      (OnRemove)="removeSubscription($event)"
       *ngFor="let user of users"
       [user]="user"
     ></app-entry-card>

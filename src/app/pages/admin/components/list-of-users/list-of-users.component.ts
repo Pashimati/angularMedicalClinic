@@ -2,17 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {UsersService} from "@core/services/users.service";
 
-
-export interface UserTableElement {
-  id: string;
-  name: string;
-  surname:string;
-  sex: string;
-  age: number;
-  address: string;
-  phone: number;
-}
-
 @Component({
   selector: 'app-list-of-users',
   templateUrl: './list-of-users.component.html',
@@ -26,7 +15,7 @@ export class ListOfUsersComponent implements OnInit {
   }
 
 
-  users: UserTableElement [] = []
+  users = []
 
   ngOnInit() {
     this.updateTableList()

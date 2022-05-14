@@ -1,6 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {SubscribeService} from "@core/services/subscribe.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-entry-card',
@@ -12,25 +10,15 @@ export class EntryCardComponent implements OnInit {
 
   @Input() user: any;
 
-  constructor (
-    private subscribeService: SubscribeService,
-    private _snackBar: MatSnackBar
+  @Output() OnRemove = new EventEmitter<string>();
+  remove(id: string) {
+    this.OnRemove.emit(id);
+  }
 
+  constructor (
 ) {
   }
 
   ngOnInit(): void {
   }
-
-  remove(id: string) {
-    this.subscribeService.deleteSubscription(id)
-      .subscribe({
-        next: () => {
-            this._snackBar.open('Subscription has been deleted', 'Undo', {
-              duration: 3000
-            });
-        }
-      });
-  }
-
 }
