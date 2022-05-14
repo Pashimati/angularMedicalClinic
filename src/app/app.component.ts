@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavigationStart, Router} from "@angular/router";
+import {LoadingService} from "@core/services/loading.service";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   }
 
   constructor(
+    public loader: LoadingService,
     private router: Router,
   ) {
     router.events.forEach((event:any) => {

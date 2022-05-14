@@ -10,9 +10,13 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "src/environments/environment";
 import {AuthorizationModule} from "./pages/authorization/authorization.module";
 import {StateService} from "@core/services/state.service";
+import {LoaderComponent} from "@core/components/loader/loader.component";
+import {LoadingInterceptor} from "@core/interceptors/loading.interceptor";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 
 @NgModule({
   declarations: [
+    LoaderComponent,
     AppComponent,
   ],
   imports: [
@@ -26,7 +30,14 @@ import {StateService} from "@core/services/state.service";
     FormsModule,
     CoreModule,
   ],
-  providers: [StateService],
+  providers: [
+    StateService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
