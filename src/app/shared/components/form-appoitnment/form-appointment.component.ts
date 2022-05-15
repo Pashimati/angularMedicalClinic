@@ -4,6 +4,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {DepartmentService} from "@core/services/department.service";
 import {DoctorsService} from "@core/services/doctors.service";
 import {SubscribeService} from "@core/services/subscribe.service";
+import {StateService} from "@core/services/state.service";
+import {Router} from "@angular/router";
 
 interface nameDepartment {
   value: string;
@@ -24,6 +26,8 @@ interface Doctor {
 })
 export class FormAppointmentComponent implements OnInit {
 
+  flag: boolean = false
+
   appointment: FormGroup
 
   doctors: Doctor [] = [];
@@ -33,6 +37,8 @@ export class FormAppointmentComponent implements OnInit {
   nameDepartments: nameDepartment[] = [];
 
   constructor (
+    private router: Router,
+    private stateService: StateService,
     private departmentService: DepartmentService,
     private subscriptionService: SubscribeService,
     private doctorService: DoctorsService,
@@ -53,6 +59,15 @@ export class FormAppointmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stateService.isLoggedIn()
+      .subscribe(value => {
+        console.log(value)
+        this.flag = value
+        if (!value) {
+          this.appointment.disable();
+        }
+      })
+
     this.setNameDepartments()
     this.setDoctors()
   }
@@ -112,22 +127,26 @@ export class FormAppointmentComponent implements OnInit {
   }
 
   submit() {
-    const data = this.appointment.getRawValue()
-    data.uidUser = localStorage.getItem('id')
-    this.subscriptionService.addSubscription(data)
-      .subscribe({
-        next: (response) => {
-          if (response.success) {
-            this._snackBar.open('You have an appointment with a doctor', 'Undo', {
-              duration: 3000
-            });
-          } else {
-            this._snackBar.open('Unsuccessful!', 'Undo', {
-              duration: 3000
-            });
+    if (this.flag) {
+      const data = this.appointment.getRawValue()
+      data.uidUser = localStorage.getItem('id')
+      this.subscriptionService.addSubscription(data)
+        .subscribe({
+          next: (response) => {
+            if (response.success) {
+              this._snackBar.open('You have an appointment with a doctor', 'Undo', {
+                duration: 3000
+              });
+            } else {
+              this._snackBar.open('Unsuccessful!', 'Undo', {
+                duration: 3000
+              });
+            }
           }
-        }
-      });
+        });
+    } else {
+      this.router.navigate(['/authorization'])
+    }
   }
 
 }
