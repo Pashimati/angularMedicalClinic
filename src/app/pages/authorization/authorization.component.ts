@@ -51,6 +51,7 @@ export class AuthorizationComponent implements OnInit {
             this.authService.getRole()
               .subscribe((response) => {
                 const role = response.role
+                localStorage.setItem('role', role)
                 if (role == 'ADMIN') {
 
                     this.router.navigate(['']);

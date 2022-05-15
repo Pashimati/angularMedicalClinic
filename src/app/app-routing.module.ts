@@ -1,6 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from "./pages/admin/admin.component";
+import {AdminGuard} from "@core/guards/admin.guard";
+import {DoctorGuard} from "@core/guards/doctor.guard";
+import {AuthGuard} from "@core/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -30,22 +33,27 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AdminGuard],
     loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'doctor',
+    canActivate: [DoctorGuard],
     loadChildren: () => import('./pages/doctor/doctor.module').then(m => m.DoctorModule)
   },
   {
     path: 'doctor/:id',
+    canActivate: [DoctorGuard],
     loadChildren: () => import('./pages/doctor/doctor.module').then(m => m.DoctorModule)
   },
   {
     path: 'profile/:id',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
   },
   {
     path: 'profile',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
   },
   {
@@ -58,6 +66,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    AdminGuard,
+    AuthGuard,
+    DoctorGuard,
+  ]
 })
 export class AppRoutingModule { }
