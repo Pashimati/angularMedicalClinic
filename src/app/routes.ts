@@ -31,4 +31,9 @@ export class Routes {
   updateSpecialityUrl = `speciality/update`
   addSpecialityUrl = `speciality/add`
   getAllSpecialityUrl = `speciality/get-all`
+
+  //subscriptions
+  getAllSubscriptionsUrl = (id: string): string => `subscription/get-all-byId/${id}`
+  addSubscriptionsUrl = `subscription/add`
+  deleteSubscriptionsUrl = (id: string): string => `subscription/delete/${id}`
 }
