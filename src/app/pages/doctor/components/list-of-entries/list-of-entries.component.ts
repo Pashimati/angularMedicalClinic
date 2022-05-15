@@ -64,6 +64,7 @@ export class listOfEntriesComponent implements OnInit {
       .subscribe({
         next: (response) => {
           if (response.success) {
+            this.users = []
             this.getSubscribeUsers(this.idDoctor)
             this._snackBar.open('Subscription has been deleted', 'Undo', {
               duration: 3000

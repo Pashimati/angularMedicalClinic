@@ -1,31 +1,35 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from "@core/services/api.service";
+import {Injectable} from '@angular/core';
+import {ApiService} from "@core/services/api.service";
+import {Routes} from "../../routes";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor(private apiService: ApiService) {
+  constructor (
+    private routes: Routes,
+    private apiService: ApiService
+  ) {
   }
 
   getAllUsers() {
-    return this.apiService.get('user/get-all')
+    return this.apiService.get(this.routes.getAllUsersUrl)
   }
 
   getUser(id: string) {
-    return this.apiService.get(`user/get/${id}`)
+    return this.apiService.get(this.routes.getUserUrl(id))
   }
 
   deleteUser(id: string) {
-    return this.apiService.delete(`user/delete/${id}`)
+    return this.apiService.delete(this.routes.deleteUserUrl(id))
   }
 
   updateUser(data: any) {
-    return this.apiService.post('user/update', data)
+    return this.apiService.post(this.routes.updateUserUrl, data)
   }
 
  addUser(data: any) {
-    return this.apiService.post('user/add', data)
+    return this.apiService.post(this.routes.addUserUrl, data)
   }
 }
