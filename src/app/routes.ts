@@ -19,10 +19,16 @@ export class Routes {
   getAllDoctorsUrl = `doctor/get-all`
 
   //departments
-
   getDepartmentUrl = (id: string): string => `department/get/${id}`
   deleteDepartmentUrl = (id: string): string => `department/delete/${id}`
   updateDepartmentUrl = `department/update`
   addDepartmentUrl = `department/add`
   getAllDepartmentsUrl = `department/get-all`
+
+  //speciality
+  getSpecialityUrl = (id: string): string => `speciality/get/${id}`
+  deleteSpecialityUrl = (id: string): string => `speciality/delete/${id}`
+  updateSpecialityUrl = `speciality/update`
+  addSpecialityUrl = `speciality/add`
+  getAllSpecialityUrl = `speciality/get-all`
 }
