@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ModalDialogComponent} from "@core/components/modal-dialog/modal-dialog.component";
 import {StateService} from "@core/services/state.service";
-import {AuthService} from "@core/services/auth/auth.service";
+import {AuthService} from "@core/services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
