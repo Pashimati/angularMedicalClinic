@@ -61,7 +61,6 @@ export class FormAppointmentComponent implements OnInit {
   ngOnInit(): void {
     this.stateService.isLoggedIn()
       .subscribe(value => {
-        console.log(value)
         this.flag = value
         if (!value) {
           this.appointment.disable();
