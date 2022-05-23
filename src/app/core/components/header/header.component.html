@@ -10,59 +10,59 @@
       <nav class="navigation">
         <ul class="nav" *ngIf="!authenticated">
           <li class="nav__item">
-            <a class="nav__link" routerLink="/about-us">About us</a>
+            <a class="nav__link" routerLink="/about-us">О нас</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" routerLink="/service">Service</a>
+            <a class="nav__link" routerLink="/service">Услуги</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" routerLink="/contact">Contact</a>
+            <a class="nav__link" routerLink="/contact">Контакты</a>
           </li>
           <li class="nav__item">
-            <button class="nav__link" mat-button (click)="openDialog()">Login In</button>
+            <button class="nav__link" mat-button (click)="openDialog()">Войти</button>
           </li>
         </ul>
 
 
         <ul class="nav" *ngIf="authenticated && role == 'ADMIN'">
-          <button class="nav__link" mat-button [matMenuTriggerFor]="menu">Menu</button>
+          <button class="nav__link" mat-button [matMenuTriggerFor]="menu">Меню</button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/admin/list-of-doctors">Doctors</button>
-            <button mat-menu-item routerLink="/admin/list-of-users">Users</button>
-            <button mat-menu-item routerLink="/admin/list-of-departments">Departments</button>
-            <button mat-menu-item routerLink="/admin/list-of-speciality">Speciality</button>
+            <button mat-menu-item routerLink="/admin/list-of-doctors">Доктора</button>
+            <button mat-menu-item routerLink="/admin/list-of-users">Пользователи</button>
+            <button mat-menu-item routerLink="/admin/list-of-departments">Отделы</button>
+            <button mat-menu-item routerLink="/admin/list-of-speciality">Специальности</button>
           </mat-menu>
           <li class="nav__item">
-            <button class="nav__link" mat-button (click)="logout()">Logout</button>
+            <button class="nav__link" mat-button (click)="logout()">Выйти</button>
           </li>
         </ul>
 
         <ul class="nav" *ngIf="authenticated && role == 'DOCTOR'">
-          <button class="nav__link" mat-button [matMenuTriggerFor]="menu">Menu</button>
+          <button class="nav__link" mat-button [matMenuTriggerFor]="menu">Меню</button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item [routerLink]="['/doctor', id]">Entries</button>
+            <button mat-menu-item [routerLink]="['/doctor', id]">Записи</button>
           </mat-menu>
           <li class="nav__item">
-            <button class="nav__link" mat-button (click)="logout()">Logout</button>
+            <button class="nav__link" mat-button (click)="logout()">Выйти</button>
           </li>
         </ul>
 
 
         <ul class="nav" *ngIf="authenticated && role == 'USER'">
           <li class="nav__item">
-            <a class="nav__link" routerLink="/about-us">About us</a>
+            <a class="nav__link" routerLink="/about-us">О нас</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" routerLink="/service">Service</a>
+            <a class="nav__link" routerLink="/service">Услуги</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" routerLink="/contact">Contact</a>
+            <a class="nav__link" routerLink="/contact">Контакты</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" [routerLink]="['/profile', id]">My Profile</a>
+            <a class="nav__link" [routerLink]="['/profile', id]">Профиль</a>
           </li>
           <li class="nav__item">
-            <button class="nav__link" mat-button (click)="logout()">Logout</button>
+            <button class="nav__link" mat-button (click)="logout()">Выйти</button>
           </li>
         </ul>
       </nav>
