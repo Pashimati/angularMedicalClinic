@@ -1,6 +1,6 @@
 <div class="container">
   <div class="wrap-table">
-    <h1 class="table-title">List of Speciality</h1>
+    <h1 class="table-title">Список специальностей</h1>
 
     <a
       class="form-small-link-table"
@@ -8,7 +8,7 @@
       color="primary"
       routerLink="/admin/add-update-speciality"
     >
-      Add speciality
+      Добавить специальность
     </a>
 
     <table mat-table [dataSource]="specialitys" class="mat-elevation-z8">
@@ -19,7 +19,7 @@
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef> Название </th>
         <td mat-cell *matCellDef="let element"> {{element.title}} </td>
       </ng-container>
 
@@ -29,14 +29,14 @@
           <a mat-button color="primary"
              [routerLink]="['/admin/add-update-speciality', element.id]"
           >
-            Update
+            Обновить
           </a>
           <button mat-button color="warn"
                   data-id="{{ element.id }}"
                   (click)="remove(element.id)"
                   aria-label="Show an example snack-bar"
           >
-            Remove
+            Удалить
           </button>
         </mat-cell>
       </ng-container>

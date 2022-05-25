@@ -6,10 +6,10 @@
             background-size: cover;"
 >
   <div class="container">
-    <h1 class="add-update__title">Data</h1>
+    <h1 class="add-update__title">Укажите данные</h1>
     <form class="form-admin">
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Speciality</mat-label>
+        <mat-label>Название</mat-label>
         <input
             [(ngModel)]="speciality.title"
             matInput
@@ -31,7 +31,7 @@
         class="btn-form"
         (click)="updateSpeciality()"
       >
-        Update speciality
+        Обновить специальность
       </button>
       <button
         *ngIf="!flag"
@@ -39,7 +39,7 @@
         class="btn-form"
         (click)="addSpeciality()"
       >
-        Add speciality
+        Добавить специальность
       </button>
     </form>
   </div>

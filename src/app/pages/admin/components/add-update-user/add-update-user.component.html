@@ -6,13 +6,13 @@
             background-size: cover;"
 >
   <div class="container">
-    <h1 class="add-update__title">Enter data</h1>
+    <h1 class="add-update__title">Укажите данные</h1>
     <form
       novalidate
       class="form-admin"
     >
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>Имя</mat-label>
         <input
           name="name"
           [(ngModel)]="user.name"
@@ -21,7 +21,7 @@
         >
       </mat-form-field>
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Surname</mat-label>
+        <mat-label>Фамилия</mat-label>
         <input
           name="surname"
           [(ngModel)]="user.surname"
@@ -32,7 +32,7 @@
 
       <div class="admin-box" *ngIf="flag">
         <mat-form-field class="admin-input" appearance="fill">
-          <mat-label>Email</mat-label>
+          <mat-label>Почта</mat-label>
           <input
             name="email"
             [(ngModel)]="user.email"
@@ -42,7 +42,7 @@
         </mat-form-field>
 
         <mat-form-field class="admin-input" appearance="fill">
-          <mat-label>Password</mat-label>
+          <mat-label>Пароль</mat-label>
           <input
             name="password"
             [(ngModel)]="user.password"
@@ -54,19 +54,19 @@
 
 
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Sex</mat-label>
+        <mat-label>Пол</mat-label>
         <mat-select
           name="sex"
         [(ngModel)]="user.sex"
           required
         >
-          <mat-option value="men">Men</mat-option>
-          <mat-option value="women">Women</mat-option>
+          <mat-option value="men">Мужской</mat-option>
+          <mat-option value="women">Женский</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Age</mat-label>
+        <mat-label>Возраст</mat-label>
         <input
           name="age"
           [(ngModel)]="user.age"
@@ -76,7 +76,7 @@
       </mat-form-field>
 
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Address</mat-label>
+        <mat-label>Адрес</mat-label>
         <textarea
           name="address"
           [(ngModel)]="user.address"
@@ -86,7 +86,7 @@
       </mat-form-field>
 
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Phone</mat-label>
+        <mat-label>Телефон</mat-label>
         <input
           name="phone"
           [(ngModel)]="user.phone"
@@ -107,7 +107,7 @@
         class="btn-form"
         (click)="updateUser()"
       >
-        Update user
+        Обновить
       </button>
       <button
         *ngIf="flag"
@@ -115,7 +115,7 @@
         class="btn-form"
         (click)="addUser()"
       >
-        Add user
+        Добавить
       </button>
     </form>
   </div>

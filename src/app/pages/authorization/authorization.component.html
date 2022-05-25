@@ -1,5 +1,5 @@
 <div class="container">
-    <app-back-btn>Back to Home</app-back-btn>
+    <app-back-btn>Вернуться на главную</app-back-btn>
     <div class="wrap">
       <div class="login100-pic js-tilt" data-tilt>
         <img src="assets/img/login.png" alt="IMG">
@@ -10,10 +10,10 @@
           (submit)="submit()"
           novalidate
         >
-          <a class="form-link" routerLink="/registration">Registration</a>
+          <a class="form-link" routerLink="/registration">Зарегистрироваться</a>
 
           <mat-form-field appearance="fill">
-            <mat-label>Enter your email</mat-label>
+            <mat-label>Введите почту</mat-label>
             <input
               matInput
               class="form-control"
@@ -31,7 +31,7 @@
             <input
               matInput
               class="form-control"
-              placeholder="Confirm password"
+              placeholder="Введите пароль"
               formControlName="password"
               type="password"
               required
@@ -42,7 +42,7 @@
           <app-btn
             type="submit"
           >
-            Login
+            Войти
           </app-btn>
         </form>
     </div>

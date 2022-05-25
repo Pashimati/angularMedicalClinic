@@ -9,7 +9,7 @@
     <h1 class="my-profile__title">Укажите данные</h1>
     <form class="form-admin">
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>Имя</mat-label>
         <input
           matInput
           name="name"
@@ -18,7 +18,7 @@
         >
       </mat-form-field>
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Surname</mat-label>
+        <mat-label>Фамилия</mat-label>
         <input
           matInput
           name="surname"
@@ -29,7 +29,7 @@
 
       <div class="admin-box" *ngIf="!flag">
         <mat-form-field class="admin-input" appearance="fill">
-          <mat-label>Email</mat-label>
+          <mat-label>Почта</mat-label>
           <input
             matInput
             name="email"
@@ -40,7 +40,7 @@
 
 
         <mat-form-field class="admin-input" appearance="fill">
-          <mat-label>Password</mat-label>
+          <mat-label>Пароль</mat-label>
           <input
             matInput
             name="password"
@@ -51,7 +51,7 @@
       </div>
 
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Speciality</mat-label>
+        <mat-label>Специальность</mat-label>
         <input
           matInput
           name="speciality"
@@ -60,7 +60,7 @@
         >
       </mat-form-field>
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>Department</mat-label>
+        <mat-label>Отдел</mat-label>
         <input
           matInput
           name="department"
@@ -71,7 +71,7 @@
       </mat-form-field>
 
       <mat-form-field class="admin-input" appearance="fill">
-        <mat-label>About</mat-label>
+        <mat-label>Кратка информация</mat-label>
         <textarea
           matInput
           name="about"
@@ -93,7 +93,7 @@
         class="btn-form"
         (click)="updateDoctor()"
       >
-        Update doctor
+        Обновить доктора
       </button>
       <button
         *ngIf="!flag"
@@ -101,7 +101,7 @@
         class="btn-form"
         (click)="addDoctor()"
       >
-        Add doctor
+        Добавть доктора
       </button>
     </form>
   </div>
